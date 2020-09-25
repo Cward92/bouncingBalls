@@ -48,7 +48,7 @@ class Ball extends Shape {
         if((this.y + this.size) >= height) {
             this.velY = -(this.velY);
         }
-        if((this.y + this.size) <= 0) {
+        if((this.y - this.size) <= 0) {
             this.velY = -(this.velY);
         }
         this.x += this.velX;
@@ -86,16 +86,16 @@ class EvilCircle extends Shape {
     }
     checkBounds() {
         if((this.x + this.size) >= width) {
-            this.velX = -(this.size);
+            this.x = this.size + 1;
         }
         if((this.x - this.size) <= 0) {
-            this.velX = -(this.size);
+            this.x += width - this.size;
         }
         if((this.y + this.size) >= height) {
-            this.velY = -(this.size);
+            this.y = this.size + 1;
         }
-        if((this.y + this.size) <= 0) {
-            this.velY = -(this.size);
+        if((this.y - this.size) <= 0) {
+            this.y += height - this.size;
         }
     }
     setControls() {
